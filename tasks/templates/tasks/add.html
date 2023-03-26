@@ -1,0 +1,13 @@
+{% extends 'layouts/main.html' %}
+
+{% block body %}
+    <h4>Add Task</h4>
+    <form action="{% url 'tasks:add' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        {% comment %} <input type="input" placeholder="task name"> {% endcomment %}
+        <button type="submit">Add</button>
+    </form>
+    {% comment %} <a href="/tasks">Back</a> {% endcomment %}
+    <a href="{% url 'tasks:index' %}">Back</a>
+{% endblock %}
